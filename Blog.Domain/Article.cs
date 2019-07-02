@@ -8,6 +8,8 @@ namespace Blog.Domain
 {
     public class Article
     {
+        public Article()
+        { }
         public Article(string title,ArticleType articleType,string content)
         {
             this.Title = title;
@@ -50,6 +52,31 @@ namespace Blog.Domain
         public void ChangeTitle(string title)
         {
             this.Title = title;
+        }
+        public void ChangeConTent(string content)
+        {
+            this.Content = content;
+        }
+        public void AddMessage(ArticleMessage message)
+        {
+            this.ArticleMessages.Add(message);
+        }
+        public void RemoveMessage(ArticleMessage message)
+        {
+            var removeItem = ArticleMessages.FirstOrDefault(t => t.Id == message.Id);
+            ArticleMessages.Remove(removeItem);
+        }
+        public void ClearMessage()
+        {
+            ArticleMessages.Clear();
+        }
+        public void ChangeArticleType(ArticleType articleType)
+        {
+            this.ArticleType = articleType;
+        }
+        public void AddHits()
+        {
+            this.Hits++;
         }
     }
 }

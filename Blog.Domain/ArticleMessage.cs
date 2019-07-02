@@ -8,6 +8,7 @@ namespace Blog.Domain
 {
     public class ArticleMessage
     {
+        public string Id { get; set; }
         public string VisitorName { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
